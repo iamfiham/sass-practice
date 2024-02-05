@@ -1,0 +1,21 @@
+.parent {
+  background-color: antiquewhite;
+}
+
+:root {
+  --primary-color: yellow;
+  --second-color: rgb(174, 0, 255);
+}
+
+.parent .child1, .parent .child3 {
+  color: var(--primary-color);
+  font-size: 7rem;
+}
+.parent .child2 {
+  color: var(--second-color);
+  font-size: 2rem;
+}
+.parent .child4 {
+  font-size: 5rem;
+  color: red;
+}/*# sourceMappingURL=style.css.map */

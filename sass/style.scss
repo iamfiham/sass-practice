@@ -1,0 +1,36 @@
+@use "use/_external_sass"; //link external .scss file
+@use "sass:math"; //need this command for use math.div()
+
+$colors: (
+  primary-color: yellow,
+  second-color: rgb(174, 0, 255),
+);
+
+:root {
+  @each $name, $color in $colors {
+    --#{$name}: #{$color};
+  }
+}
+
+@mixin font-class($size, $col) {
+  font-size: $size;
+  color: $col;
+} //create a new group of styles
+
+.parent {
+  .child1 {
+    // color: map-get($colors ,primary-color );             //getting variable values in map design variable
+    color: var(--primary-color);
+    font-size: 4rem + 3;
+  }
+  .child2 {
+    color: var(--second-color);
+    font-size: math.div(4rem, 2);
+  }
+  .child3 {
+    @extend .child1; //apply '.child1' class design to this class
+  }
+  .child4 {
+    @include font-class(5rem, red); //add mixin styles to this child
+  }
+}
